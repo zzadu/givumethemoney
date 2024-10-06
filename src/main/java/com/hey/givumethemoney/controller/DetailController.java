@@ -11,7 +11,7 @@ public class DetailController {
 
     @GetMapping("/detail")
     //@ResponseBody
-    public String detail(@RequestParam("id") int id, Model model) {
+    public String detail(@RequestParam("id") Long id, Model model) {
         model.addAttribute("id", id);
         return "donationDetail";
     }
