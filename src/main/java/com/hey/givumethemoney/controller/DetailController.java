@@ -15,9 +15,4 @@ public class DetailController {
         model.addAttribute("id", id);
         return "donationDetail";
     }
-
-    @GetMapping("/application")
-    public String application() {
-        return "donationForm";
-    }
 }

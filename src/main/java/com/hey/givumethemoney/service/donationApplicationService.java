@@ -2,17 +2,19 @@ package com.hey.givumethemoney.service;
 
 import com.hey.givumethemoney.domain.Donation;
 import com.hey.givumethemoney.repository.JPADonationRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
 
-@Service
-public class donationApplicationService {
+@Transactional
+public class DonationApplicationService {
 
-    @Autowired
-    private JPADonationRepository donationRepository;
+    private final JPADonationRepository donationRepository;
+
+    public DonationApplicationService(JPADonationRepository donationRepository) {
+        this.donationRepository = donationRepository;
+    }
 
     public Donation saveDonation(Donation donation) {
         return donationRepository.save(donation);

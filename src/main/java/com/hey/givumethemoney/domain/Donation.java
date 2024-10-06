@@ -6,7 +6,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 @Entity
 @Table(name = "donation")
@@ -23,10 +23,10 @@ public class Donation {
     private String title;
 
     @Column(name = "start_date", nullable = false)
-    private LocalDateTime startDate;
+    private LocalDate startDate;
 
     @Column(name = "end_date", nullable = false)
-    private LocalDateTime endDate;
+    private LocalDate endDate;
 
     @Column(name = "goal", nullable = false)
     private int goal;
@@ -34,8 +34,8 @@ public class Donation {
     @Column(name = "current_amount")
     private int currentAmount;
 
-    @Column(name = "description")
-    private String description;
+    @Column(name = "descript")
+    private String descript;
 
     @Column(name = "participant")
     private int participant;
@@ -50,18 +50,21 @@ public class Donation {
     @Column(name = "is_confirmed")
     private boolean isConfirmed;
 
+    @Column(name = "user_id")
+    private String userId;
+
     @Builder
-    public Donation(Long id, String title, LocalDateTime startDate, LocalDateTime endDate, int goal, int currentAmount, String description, int participant, String enterName, byte[] image, boolean isConfirmed) {
-        this.id = id;
+    public Donation(String title, LocalDate startDate, LocalDate endDate, int goal, int currentAmount, String descript, int participant, String enterName, byte[] image, boolean isConfirmed, String userId) {
         this.title = title;
         this.startDate = startDate;
         this.endDate = endDate;
         this.goal = goal;
         this.currentAmount = currentAmount;
-        this.description = description;
+        this.descript = descript;
         this.participant = participant;
         this.enterName = enterName;
         this.image = image;
         this.isConfirmed = isConfirmed;
+        this.userId = userId;
     }
 }
